@@ -44,7 +44,7 @@ type ActiveMQArtemisAddressInterface interface {
 	List(opts v1.ListOptions) (*v2alpha1.ActiveMQArtemisAddressList, error)
 	Watch(opts v1.ListOptions) (watch.Interface, error)
 	Patch(name string, pt types.PatchType, data []byte, subresources ...string) (result *v2alpha1.ActiveMQArtemisAddress, err error)
-	//ActiveMQArtemisAddressExpansion
+	ActiveMQArtemisAddressExpansion
 }
 
 // activeMQArtemisAddresses implements ActiveMQArtemisAddressInterface

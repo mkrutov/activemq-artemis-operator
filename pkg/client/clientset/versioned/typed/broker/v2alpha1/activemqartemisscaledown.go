@@ -44,7 +44,7 @@ type ActiveMQArtemisScaledownInterface interface {
 	List(opts v1.ListOptions) (*v2alpha1.ActiveMQArtemisScaledownList, error)
 	Watch(opts v1.ListOptions) (watch.Interface, error)
 	Patch(name string, pt types.PatchType, data []byte, subresources ...string) (result *v2alpha1.ActiveMQArtemisScaledown, err error)
-	//ActiveMQArtemisScaledownExpansion
+	ActiveMQArtemisScaledownExpansion
 }
 
 // activeMQArtemisScaledowns implements ActiveMQArtemisScaledownInterface
