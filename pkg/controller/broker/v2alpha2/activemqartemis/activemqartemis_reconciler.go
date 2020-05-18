@@ -397,8 +397,8 @@ func configureAcceptorsExposure(customResource *brokerv2alpha2.ActiveMQArtemis, 
 
 	originalLabels := selectors.LabelBuilder.Labels()
 	namespacedName := types.NamespacedName{
-		Name:		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	for ; i < customResource.Spec.DeploymentPlan.Size; i++ {
 		ordinalString = strconv.Itoa(int(i))
@@ -448,8 +448,8 @@ func configureConnectorsExposure(customResource *brokerv2alpha2.ActiveMQArtemis,
 
 	originalLabels := selectors.LabelBuilder.Labels()
 	namespacedName := types.NamespacedName{
-		Name:		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	for ; i < customResource.Spec.DeploymentPlan.Size; i++ {
 		ordinalString = strconv.Itoa(int(i))
@@ -502,12 +502,12 @@ func configureConsoleExposure(customResource *brokerv2alpha2.ActiveMQArtemis, cl
 
 	originalLabels := selectors.LabelBuilder.Labels()
 	namespacedName := types.NamespacedName{
-		Name:		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	for ; i < customResource.Spec.DeploymentPlan.Size; i++ {
 		ordinalString = strconv.Itoa(int(i))
-        var serviceRoutelabels = make(map[string]string)
+		var serviceRoutelabels = make(map[string]string)
 		for k, v := range originalLabels {
 			serviceRoutelabels[k] = v
 		}
@@ -576,8 +576,8 @@ func generateConsoleSSLFlags(customResource *brokerv2alpha2.ActiveMQArtemis, cli
 		Namespace: customResource.Namespace,
 	}
 	namespacedName := types.NamespacedName{
-		Name:		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	stringDataMap := map[string]string{}
 	userPasswordSecret := secrets.NewSecret(namespacedName, secretName, stringDataMap)
@@ -620,8 +620,8 @@ func generateAcceptorConnectorSSLArguments(customResource *brokerv2alpha2.Active
 		Namespace: customResource.Namespace,
 	}
 	namespacedName := types.NamespacedName{
-		Name:		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	stringDataMap := map[string]string{}
 	userPasswordSecret := secrets.NewSecret(namespacedName, secretName, stringDataMap)
@@ -1123,8 +1123,8 @@ func MakeVolumeMounts(cr *brokerv2alpha2.ActiveMQArtemis) []corev1.VolumeMount {
 func NewPodTemplateSpecForCR(customResource *brokerv2alpha2.ActiveMQArtemis) corev1.PodTemplateSpec {
 
 	namespacedName := types.NamespacedName{
-		Name: 		customResource.Name,
-		Namespace:	customResource.Namespace,
+		Name:      customResource.Name,
+		Namespace: customResource.Namespace,
 	}
 	// Log where we are and what we're doing
 	reqLogger := log.WithName(namespacedName.Name)
@@ -1159,7 +1159,7 @@ func NewStatefulSetForCR(cr *brokerv2alpha2.ActiveMQArtemis) *appsv1.StatefulSet
 	reqLogger.Info("Creating new statefulset for custom resource")
 
 	namespacedName := types.NamespacedName{
-		Name: cr.Name,
+		Name:      cr.Name,
 		Namespace: cr.Namespace,
 	}
 	ss, Spec := statefulsets.MakeStatefulSet(namespacedName, cr.Annotations, cr.Spec.DeploymentPlan.Size, NewPodTemplateSpecForCR(cr))
@@ -1178,7 +1178,7 @@ func NewPersistentVolumeClaimArrayForCR(cr *brokerv2alpha2.ActiveMQArtemis, arra
 	pvcArray := make([]corev1.PersistentVolumeClaim, 0, arrayLength)
 
 	namespacedName := types.NamespacedName{
-		Name: cr.Name,
+		Name:      cr.Name,
 		Namespace: cr.Namespace,
 	}
 

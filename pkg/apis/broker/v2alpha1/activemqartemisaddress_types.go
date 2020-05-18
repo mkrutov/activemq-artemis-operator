@@ -30,6 +30,7 @@ type ActiveMQArtemisAddressStatus struct {
 
 // ActiveMQArtemisAddress is the Schema for the activemqartemisaddresses API
 // +k8s:openapi-gen=true
+// +genclient
 type ActiveMQArtemisAddress struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`

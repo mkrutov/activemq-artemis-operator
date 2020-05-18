@@ -49,6 +49,4 @@ func init() {
 // correctly.
 func AddToScheme(scheme *runtime.Scheme) {
 	apis.AddToScheme(scheme)
-	apis.AddToScheme(scheme)
-
 }

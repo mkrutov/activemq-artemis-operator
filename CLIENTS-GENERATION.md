@@ -11,3 +11,6 @@ Several quircks exist for generating kube clients for activemq-artemis operator.
     notions of ActiveMQArtemisAddressExpansion and ActiveMQArtemisScaledownExpansion need to be removed from respective clients.
  
  4) fake clients. Fake clients generated are faulty code, which was not fixed, but was left as a part of code-generator results. Do not use. 
+ 
+ 5) command for generation:
+ ./generate-groups.sh client github.com/rh-messaging/activemq-artemis-operator/pkg/client github.com/rh-messaging/activemq-artemis-operator/pkg/apis broker:v2alpha1,v2alpha2

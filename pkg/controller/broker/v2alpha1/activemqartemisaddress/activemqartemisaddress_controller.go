@@ -2,11 +2,11 @@ package v2alpha1activemqartemisaddress
 
 import (
 	"context"
+	mgmt "github.com/artemiscloud/activemq-artemis-management"
 	brokerv2alpha1 "github.com/rh-messaging/activemq-artemis-operator/pkg/apis/broker/v2alpha1"
 	"github.com/rh-messaging/activemq-artemis-operator/pkg/resources"
 	"github.com/rh-messaging/activemq-artemis-operator/pkg/resources/secrets"
 	ss "github.com/rh-messaging/activemq-artemis-operator/pkg/resources/statefulsets"
-	mgmt "github.com/artemiscloud/activemq-artemis-management"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
@@ -263,7 +263,7 @@ func getEnvVarValue(envVar *corev1.EnvVar, namespace *types.NamespacedName, stat
 
 func getEnvVarValueFromSecret(envName string, varSource *corev1.EnvVarSource, namespace *types.NamespacedName, statefulset *appsv1.StatefulSet, client client.Client) string {
 
-    reqLogger := log.WithValues("Namespace", namespace.Name, "StatefulSet", statefulset.Name)
+	reqLogger := log.WithValues("Namespace", namespace.Name, "StatefulSet", statefulset.Name)
 
 	var result string = ""
 

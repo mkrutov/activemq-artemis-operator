@@ -30,6 +30,10 @@ func (c *FakeBrokerV2alpha1) ActiveMQArtemises(namespace string) v2alpha1.Active
 	return &FakeActiveMQArtemises{c, namespace}
 }
 
+func (c *FakeBrokerV2alpha1) ActiveMQArtemisAddresses(namespace string) v2alpha1.ActiveMQArtemisAddressInterface {
+	return &FakeActiveMQArtemisAddresses{c, namespace}
+}
+
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeBrokerV2alpha1) RESTClient() rest.Interface {
